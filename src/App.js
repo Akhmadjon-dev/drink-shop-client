@@ -5,7 +5,7 @@ import routes from "./containers/routes";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const user = null;
+  const user = true;
 
   if (user) {
     return (
@@ -16,9 +16,9 @@ function App() {
             <Routes>
               {routes.private.map((item) => {
                 const { path, element: Component } = item;
-                return <Route key={path} path={path} element={<Component />} />;
+                return <Route key={path} path={path} element={(path === '*' ? Component : <Component />)} />;
               })}
-            </Routes>
+            </Routes> 
           </Suspense>
         </div>
       </div>
@@ -28,7 +28,7 @@ function App() {
       <Routes>
         {routes.public.map((item) => {
           const { path, element: Component } = item;
-          return <Route key={path} path={path} element={<Component />} />;
+          return <Route key={path} path={path} element={(path === '*' ? Component : <Component />)} />;
         })}
       </Routes>
     </Suspense>;
