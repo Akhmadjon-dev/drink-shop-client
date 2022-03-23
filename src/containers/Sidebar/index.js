@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import {IoIosLogIn, IoIosLogOut} from "react-icons/io"
 import Container from "./sidebar.style";
@@ -17,28 +17,28 @@ function Sidebar() {
           {urls.map((url) => {
             const { path, title, icon } = url;
             return (
-              <Link className="link" to={path} key={path}>
+              <NavLink className={(nav) => (nav.isActive ? 'link link--active': 'link')} to={path} key={path}>
                 <span className="link__icon">
                   {icon}
                 </span>
                 <p className="link__title">{title}</p>
-              </Link>
+              </NavLink>
             );
           })}
       </ul>
       <div className="auth__links">
-        <Link className="link" to="/profile">
+        <NavLink  className={(nav) => (nav.isActive ? 'link link--active': 'link')} to="/profile">
           <span className="link__icon">
             <CgProfile />
           </span>
           <p className="link__title">Profile</p>
-        </Link>
-        <Link className="link" to="/logout">
+        </NavLink>
+        <p className="link" >
           <span className="link__icon">
             <IoIosLogOut />
           </span>
           <p className="link__title">Logout</p>
-        </Link>
+        </p>
       </div>
     </Container>
   );
