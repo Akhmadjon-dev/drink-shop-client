@@ -1,8 +1,9 @@
 import React from 'react'
+import Container from './dashboard.style'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <Container>Dashboard</Container>
   )
 }
 

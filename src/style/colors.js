@@ -5,4 +5,5 @@ export default {
     text_light: "#505155",
     text: "#010101",
     primary: "#ee953b",
+    bg: "#fafafa",
 }
