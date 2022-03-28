@@ -1,9 +1,91 @@
-import React from 'react'
+import React from "react";
+import { Form, Input, Button, Checkbox } from "antd";
 
-function SignUp() {
+import "./style.css";
+import { Link } from "react-router-dom";
+
+const SignUp = () => {
+
+  const onFinish = values => {
+    console.log("Received values of form: ", values);
+  }
+
+  const onFinishFailed = errorInfo => {
+    console.log("Failed:", errorInfo);
+  }
+
   return (
-    <div>SignUp</div>
-  )
-}
+    <div className="sign">
+      <h2 className="sign__title">Sign Up</h2>
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-export default SignUp
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="remember"
+          valuePropName="checked"
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+          <p>
+            If you have an account, <Link to="/signin">sign in</Link>
+          </p>
+    </div>
+  );
+};
+
+export default SignUp;
