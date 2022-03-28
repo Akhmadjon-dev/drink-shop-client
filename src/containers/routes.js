@@ -53,7 +53,7 @@ const routes = {
       inHeader: false,
     },
     {
-      path: "*",
+        path: "*",
       element: <Navigate to="/" replace />,
     },
   ],
