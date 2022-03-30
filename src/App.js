@@ -3,9 +3,11 @@ import "./App.css";
 import Sidebar from "./containers/Sidebar";
 import routes from "./containers/routes";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
-  const user = false;
+  const user = useSelector((state) => state.auth.token);
+  console.log(user);
 
   if (user) {
     return (

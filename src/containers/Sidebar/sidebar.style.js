@@ -56,6 +56,7 @@ const Container = styled.div`
     .link__title {
       font-size: 18px;
       color: ${colors.text};
+      margin-bottom: 0;
     }
   }
   .auth__links {

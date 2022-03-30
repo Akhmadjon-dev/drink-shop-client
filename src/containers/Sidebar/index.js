@@ -1,13 +1,21 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
-import {IoIosLogIn, IoIosLogOut} from "react-icons/io"
+import { IoIosLogOut} from "react-icons/io"
 import Container from "./sidebar.style";
 import logo from "../../assets/img/logo.png";
 import routes from "../routes";
+import { useDispatch } from 'react-redux';
+import { clear } from "../../store/authReducer";
 
 const urls = routes.private.filter(item => item.inHeader);
+
 function Sidebar() {
+  const dispatch = useDispatch()
+
+  const logoutHandler = () => {
+    dispatch(clear())
+  }
   return (
     <Container>
       <div className="logo">
@@ -33,7 +41,7 @@ function Sidebar() {
           </span>
           <p className="link__title">Profile</p>
         </NavLink>
-        <p className="link" >
+        <p onClick={logoutHandler} className="link" >
           <span className="link__icon">
             <IoIosLogOut />
           </span>

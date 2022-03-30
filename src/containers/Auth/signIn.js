@@ -10,7 +10,6 @@ function SignIn() {
   const dispatch = useDispatch();
 
   const onFinish = values => {
-    console.log("Received values of form: ", values);
     dispatch(authSignIn(values))
   }
 
@@ -29,7 +28,8 @@ function SignIn() {
           span: 16,
         }}
         initialValues={{
-          remember: true,
+          email: '',
+          password: '',
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -62,17 +62,6 @@ function SignIn() {
         </Form.Item>
 
         <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,
@@ -82,6 +71,7 @@ function SignIn() {
             Submit
           </Button>
         </Form.Item>
+
       </Form>
       <p>
         If you don't have an account, <Link to="/sign-up">sign up</Link>
