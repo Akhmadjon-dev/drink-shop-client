@@ -1,14 +1,20 @@
 import React from "react";
 import { Form, Input, Button, Select } from "antd";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { authSignUp } from "../../store/authReducer";
 
 import "./style.css";
 
 const {Option} = Select;
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    dispatch(authSignUp(values));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -31,7 +37,7 @@ const SignUp = () => {
           name: "",
           phone: "",
           address: "",
-          role: "",
+          role: "user",
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -102,6 +108,7 @@ const SignUp = () => {
 
         <Form.Item
           label="Role"
+          name="role"
         >
            <Select defaultValue='user'>
                 <Option value="user">User</Option>
