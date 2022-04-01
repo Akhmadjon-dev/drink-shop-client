@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { CgMenuGridO } from "react-icons/cg";
 import { BsCardList } from "react-icons/bs";
 import ProductList from "./Table";
 import Cards from "./Cards";
 import Wrapper from "./style";
+import { Link } from 'react-router-dom';
 
 function Products() {
   const [isTable, setIsTable] = React.useState(false);
@@ -19,9 +19,9 @@ function Products() {
           <button>Search</button>
         </form>
         <div className="product__actions">
-          {/* <Link to="/products/new"> */}
-          <Button>New Product</Button>
-          {/* </Link> */}
+          <Link to="/products/add">
+            <Button>New Product</Button>
+          </Link>
           <Button
             onClick={() => setIsTable(!isTable)}
             className="product__toggle"
