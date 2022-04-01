@@ -37,7 +37,7 @@ const SignUp = () => {
           name: "",
           phone: "",
           address: "",
-          role: "user",
+          role: "sales",
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -110,8 +110,8 @@ const SignUp = () => {
           label="Role"
           name="role"
         >
-           <Select defaultValue='user'>
-                <Option value="user">User</Option>
+           <Select defaultValue='sales'>
+                <Option value="sales">Salesman</Option>
                 <Option value="admin">Admin</Option>
             </Select>
         </Form.Item>
