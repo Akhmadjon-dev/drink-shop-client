@@ -1,4 +1,5 @@
 import React from "react";
+import { signOut } from "../../store/authReducer";
 import {NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut} from "react-icons/io"
@@ -6,7 +7,6 @@ import Container from "./sidebar.style";
 import logo from "../../assets/img/logo.png";
 import routes from "../routes";
 import { useDispatch } from 'react-redux';
-import { clear } from "../../store/authReducer";
 
 const urls = routes.private.filter(item => item.inHeader);
 
@@ -14,7 +14,7 @@ function Sidebar() {
   const dispatch = useDispatch()
 
   const logoutHandler = () => {
-    dispatch(clear())
+    dispatch(signOut())
   }
   return (
     <Container>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../store';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/' : 'https://api.github.com';
+const baseURL =  '/' 
 
 export default axios.create({baseURL, withCredentials: true});
 
